@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       < Routes >
-        < Route path = "/" element = { <Starships/>}/>
-        < Route path = "home" element = { <Home/> }/>
+        < Route path = "/" element = { <Home/>}/>
+        < Route path = "starships" element = {<Starships/> }/>
       </ Routes >
     </>  
   );
