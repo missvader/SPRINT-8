@@ -1,15 +1,31 @@
 import React from "react";
+import axios from 'axios';
 import Header from "../components/Header";
+import Starship from "../components/Starship";
+import {useState, useEffect} from "react";
+
+const baseURL = "https://swapi.dev/api/starships/";
 
 const Starships = () => {
-
+ //inicializamos el estado del listado de naves con un array vacio
+ const [ships, setShips] = useState([]);
+ 
+ useEffect(() => {
+  axios.get(baseURL)
+    .then((response) => {
+      setShips(response.data.results);
+    });
+ }, []);
+ console.log(ships);
   return (
     <>
     <Header/>
     <div className="container ">
-      <div className="border mt-7 gap-4 mx-auto md:w-4/6">
-        <p className="text-white">NAME</p>
-        <p className="text-white ">MODEL</p>
+      <div className="mx-auto md:w-4/6">
+        {ships.map((item, index) => (
+          <Starship key={index} name={item.name} model={item.model}/>
+        ))
+        }
       </div>
     </div>
     </>
