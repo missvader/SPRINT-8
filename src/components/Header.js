@@ -1,9 +1,11 @@
 import React from "react";
 import logoStarWars from "../assets/starwars-logo-3.png";
+import Menu from "./Menu.js";
 
 const Header = () => {
   /*TODO: make it responsive */
   return(
+    <>
     <div className="navbar bg-transparent">
       <div className="navbar-start">
       </div>
@@ -16,6 +18,8 @@ const Header = () => {
         <a className="link link-hover text-slate-400 font-bold mx-5">SIGN UP</a>
       </div>
     </div>
+    <Menu/>
+    </>
   );
 }
 export default Header;
