@@ -9,7 +9,7 @@ const Menu = () =>{
         </Link>
       </div>  
       <div className="border-zinc-600 border">
-        <Link to="starships" className="text-white tab tab-bordered border">STARSHIPS
+        <Link to="/starships" className="text-white tab tab-bordered border">STARSHIPS
         </Link>
       </div>
     </div>

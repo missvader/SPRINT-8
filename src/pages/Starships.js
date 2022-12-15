@@ -1,6 +1,5 @@
 import React from "react";
 import axios from 'axios';
-import Header from "../components/Header";
 import Starship from "../components/Starship";
 import {useState, useEffect} from "react";
 
@@ -19,7 +18,6 @@ const Starships = () => {
  console.log(ships);
   return (
     <>
-    <Header/>
     <div className="container mx-auto">
       <div className="mx-auto w-10/12 sm:w-5/6 md:w-4/6 ">
         {ships.map((item, index) => (
