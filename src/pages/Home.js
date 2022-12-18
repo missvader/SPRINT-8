@@ -1,5 +1,5 @@
 import React from "react";
-import logoSmall from "../assets/logoSmallScreen.webp"
+//import logoSmall from "../assets/logoSmallScreen.webp"
 
 const Home = () => {
   return (
