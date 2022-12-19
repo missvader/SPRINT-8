@@ -10,7 +10,6 @@ export const ShipsContextProvider= (props) => {
 	//inicializamos el estado del listado de naves con un array vacio
   const [ships, setShips] = useState([]);
   const baseURL = "https://swapi.dev/api/starships/?page=1";
-  const imgBaseURL = "https://starwars-visualguide.com/assets/img/starships/5.jpg"
 
 	const getShips = () =>{
     axios.get(baseURL)
@@ -21,7 +20,10 @@ export const ShipsContextProvider= (props) => {
 
 	// Retornamos el Provider con el estado que será global con la función que lo actualiza
 	return (
-    <ShipsContext.Provider value={{ships, setShips, getShips}}>
+    <ShipsContext.Provider value={{
+      ships, 
+      getShips,
+      }}>
       {props.children}
     </ShipsContext.Provider>);
 };
