@@ -1,30 +1,35 @@
 import React from "react";
-import {useState , useEffect } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import { ShipsContext } from "../context/ShipsContext";
+
 
 const StarshipDetail = () => {
-  /*console.log(useParams())*/
+  const {ship,setShip} = useContext(ShipsContext)
   const {id} = useParams();
-  const [ship, setShip] = useState({});
-
+  //console.log(useParams());
+  const urlSingleStarship = `https://swapi.dev/api/starships/` + id ;
+  const imgVisualGuide = `https://starwars-visualguide.com/assets/img/starships/${id}.jpg` ;
   const imgError = "https://starwars-visualguide.com/assets/img/big-placeholder.jpg";
-
   const getShip = () =>{
-    axios.get(`https://swapi.dev/api/starships/` + id)
+    axios.get(urlSingleStarship)
     .then((response) => {
       setShip(response.data);
-      console.log(ship)
     });
-   }
+  }
+  
    useEffect(() =>{
     getShip();
-    
+    // eslint-disable-next-line
    }, [])
+   console.log(ship)
+   
   return (
     <div className="card w-96 my-10 bg-black shadow-xl mx-auto  grid md:w-5/6 lg:w-4/6 xl:w-3/6">
       <figure><img 
-          src={`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`}
+          src= {imgVisualGuide}
           alt="starship" className="w-full"
           onError={(e) => (e.currentTarget.src = imgError)}/></figure>
         <div className="card-body border-t-2 border-red-500 text-slate-300">

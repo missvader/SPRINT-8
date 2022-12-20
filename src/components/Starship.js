@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Starship = ({name, model, url}) => {
-  //extraer id de idShipUrl para poder acceder a los detalles de cada nave desde aqui con un link
-  const idShip = url.replace(/[^0-9]+/g, "");
+const Starship = ({name, model, idShip}) => {
+  //extraer idShip de item.url para poder acceder a los detalles de cada nave desde aqui con un link (pero en Starships.js y lo pasamos aqui como prop)
   
-  console.log(idShip)
   return(
     <Link to={"/starships/"+idShip}>
-    <ul className="text-slate-300 mt-7 bg-zinc-800/75 rounded p-4">
+    <ul className="text-slate-300 mt-7 bg-zinc-800/75 rounded p-4" >
       <li className="uppercase">{name}</li>
       <li className="mt-1">{model}</li>
     </ul>
