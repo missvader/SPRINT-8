@@ -12,7 +12,7 @@ export const ShipsContextProvider= (props) => {
 	//inicializamos el estado del listado de naves con un array vacio
   const [ships, setShips] = useState([]); //storing list
   const [ship, setShip] = useState({});
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(1); 
   
   
   console.log(ships);
