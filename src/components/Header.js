@@ -2,6 +2,7 @@ import React from "react";
 import logoStarWars from "../assets/starwars-logo-3.png";
 import logoMobile from "../assets/logoMobile.webp"
 import Menu from "./Menu.js";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   
@@ -33,16 +34,21 @@ const Header = () => {
           <img src={logoMobile} alt="star wars logo" className="w-60"/>
         </picture>
       </div>
-      <div className="navbar-end hidden mr-3 lg:flex">
+      <div className="navbar-end hidden mr-3 lg:flex pointer">
         <ul className="menu menu-horizontal px-1 space-x-4">
-          <li className="">
-            <img src="https://static-mh.content.disney.io/matterhorn/assets/starwars/navigation/SW_Oneid_User-85043c6786ab.svg" alt="icon user" className="p-0"/>
-            <a href="/login" className="text-white">LOG IN</a>
-          </li>
-          <li className="">
-            <img src="https://static-mh.content.disney.io/matterhorn/assets/starwars/navigation/SW_Oneid_User-85043c6786ab.svg" alt="icon user" className="p-0"/>
-            <a href="/signup" className="text-white">SIGN UP</a>
-          </li>
+          <Link to={"/login"}>
+            <li >
+              <img src="https://static-mh.content.disney.io/matterhorn/assets/starwars/navigation/SW_Oneid_User-85043c6786ab.svg" alt="icon user" className="p-0  btn-ghost "/>
+              <button className="text-white btn-ghost hover:font-bold ">LOG IN</button>
+            </li>
+          </Link>
+          <Link to={"/signup"}>
+            <li >
+              <img src="https://static-mh.content.disney.io/matterhorn/assets/starwars/navigation/SW_Oneid_User-85043c6786ab.svg" alt="icon user" className="p-0 btn-ghost "/>
+              <button className="text-white btn-ghost hover:font-bold">SIGN UP</button>
+            </li>
+          </Link>
+          
         </ul> 
         
       </div>

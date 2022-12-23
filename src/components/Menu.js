@@ -1,18 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {NavLink } from "react-router-dom";
 
 const Menu = () =>{
   return (
-    <div className="flex justify-center tabs border-zinc-600 border">
-      <div className="border-zinc-600 border">
-        <Link to="/" className="text-white tab tab-bordered tab-active border" >HOME
-        </Link>
-      </div>  
-      <div className="border-zinc-600 border">
-        <Link to="/starships" className="text-white tab tab-bordered border">STARSHIPS
-        </Link>
+    <nav className="navbar flex justify-center border-white border-b">
+      <div className="px-3">
+        <NavLink to="/" className={({isActive}) => (isActive ? "border-b-2 border-yellow-100" : "text-zinc-400")}>
+          <button className="text-zinc-400 hover:text-white">HOME</button>
+        </NavLink>
       </div>
-    </div>
+      <div className="px-3">
+        <NavLink to="/starships" className={({isActive}) => (isActive ? "border-b-2 border-yellow-100" : "text-zinc-400")}>
+          <button className="text-zinc-400 hover:text-white">STARSHIPS</button>
+        </NavLink>
+      </div>   
+        
+    </nav>
   )
 }
 export default Menu;
