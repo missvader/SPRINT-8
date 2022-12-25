@@ -1,4 +1,14 @@
+
 .container-infinite{
   background-color: black;
   background-size:cover;
+}
+.home-container{
+  background-image: url(./assets/homeBackground.jpg);
+  background-position: center;
+  background-size: cover;
+  height:100vh;
+  display: flex;
+  align-items: ;
+  justify-content: center;
 }

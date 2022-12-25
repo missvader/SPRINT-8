@@ -2,7 +2,7 @@ import React from "react";
 import logoStarWars from "../assets/starwars-logo-3.png";
 import logoMobile from "../assets/logoMobile.webp"
 import Menu from "./Menu.js";
-import { Link , NavLink} from "react-router-dom";
+import { NavLink} from "react-router-dom";
 
 
 const Header = () => {

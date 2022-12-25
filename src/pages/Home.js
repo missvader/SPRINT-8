@@ -1,11 +1,15 @@
 import React from "react";
-//import logoSmall from "../assets/logoSmallScreen.webp"
+import "../App.css";
+
 
 const Home = () => {
   return (
-    <>
-    <p className="text-white text-center ">Esta es la Homepage</p>
-    </> 
+    <div className="home-container ">
+      <button className="btn glass">START</button>
+    </div>
+    
+    
+     
 
   )
 }
