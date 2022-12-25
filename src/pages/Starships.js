@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { ShipsContext } from "../context/ShipsContext";
 import InfiniteScroll from "react-infinite-scroll-component";
-
+import "../App.css";
 const Starships = () => {
   const {ships, getShips, setShips, page, setPage } = useContext(ShipsContext)
 
@@ -15,7 +15,7 @@ const Starships = () => {
   /*NoTA: el infinity scroll siempre tiene que englobar al elemento contenedor de la lista a mostrar (en este caso es el div) */
   return (
     <>
-    <div className="container mx-auto">
+    <div className="container container-infinite mx-auto">
       <InfiniteScroll
         dataLength={ships.length}
         next={

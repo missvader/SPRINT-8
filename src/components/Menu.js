@@ -3,7 +3,7 @@ import {NavLink } from "react-router-dom";
 
 const Menu = () =>{
   return (
-    <nav className=" flex justify-center border-white border-b pb-2">
+    <nav className=" hidden lg:flex justify-center border-white border-b pb-2 ">
       <div className="px-3">
         <NavLink to="/" className={({isActive}) => (
             isActive ? "border-b-2 border-yellow-100 text-white" : "text-zinc-400")}>
