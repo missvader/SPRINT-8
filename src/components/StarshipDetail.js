@@ -27,7 +27,7 @@ const StarshipDetail = () => {
    console.log(ship)
    
   return (
-    <div className="card w-96 my-10 bg-black shadow-xl mx-auto  grid md:w-5/6 lg:w-4/6 xl:w-3/6">
+    <div className="card w-96 my-10 bg-black  shadow-xl mx-auto  grid w-2/3 sm:w-5/6 lg:w-4/6 xl:w-3/6  ">
       <figure><img 
           src= {imgVisualGuide}
           alt="starship" className="w-full"

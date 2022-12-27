@@ -3,12 +3,28 @@
   background-color: black;
   background-size:cover;
 }
+.bg-container{
+  position: relative;
+}
 .home-container{
-  background-image: url(./assets/homeBackground.jpg);
+  /*background-image: url(./assets/deathStarPhone.jpeg);*/
+  background-image: url(./assets/phoneBg.jpg);
+
   background-position: center;
   background-size: cover;
-  height:100vh;
   display: flex;
-  align-items: ;
-  justify-content: center;
+  height:100vh;
+  width: 100%;
+  flex-direction: column;
+  /*justify-content:flex-start;
+  align-items: center;*/
+  position: absolute;
+  
+}
+@media (min-width: 768px) {
+  .home-container{
+   /* background-image: url(./assets/phoneBg.jpg);*/
+   background-image: url(./assets/deathStarPhone.jpeg);
+  }
+  
 }

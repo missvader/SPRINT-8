@@ -11,9 +11,10 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   /*background-image: url(https://lumiere-a.akamaihd.net/v1/images/background-stars-desktop_00cbf8a9.jpeg?region=0%2C0%2C2048%2C1600);*/
   background-color: black;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
- 
+  
+  
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
