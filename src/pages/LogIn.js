@@ -2,7 +2,7 @@ import React from "react"
 import loginSw from "../assets/loginSw.png"
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import Input from "../components/formInput"
+import Input from "../components/FormInput"
 import { loginFields } from "../constants/formFields"
 
 const fields=loginFields;
