@@ -3,7 +3,9 @@ import "../App.css";
 import { Link } from "react-router-dom";
 
 
+
 const Home = () => {
+  
   return (
   <div className="container-fluid bg-container">
     <div className="home-container  ">
@@ -13,9 +15,12 @@ const Home = () => {
           Throughout the entire Star Wars universe we have been able to enjoy the appearance of different starships.
           MAY THE FORCE BE WITH YOU
         </p>
-        <Link to="/starships" className="mx-auto link">
-          <button className=" btn glass m-5 ">DISCOVER</button>
-        </Link>
+        <div>
+          <Link to="/starships" className="mx-auto link">
+            <button className=" btn glass m-5 ">DISCOVER</button>
+          </Link>
+        </div>
+        
         
         </div>
         

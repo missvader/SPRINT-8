@@ -20,7 +20,7 @@ const Header = () => {
               <NavLink
                 className={({isActive}) => (
                       isActive ? "border-l-2 border-yellow-100 text-white pl-3" : "text-zinc-400")}
-                  exact to="/"
+                   to="/"
                   onClick={() => {
                       if (document.activeElement instanceof HTMLElement) {
                         document.activeElement.blur()

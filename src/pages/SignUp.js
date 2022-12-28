@@ -1,30 +1,20 @@
 import React from "react";
 import { useState } from "react";
-import Input from "../components/FormInput"
-import { signupFields } from "../constants/formFields";
 import loginSw from "../assets/loginSw.png"
 import { Link } from "react-router-dom";
 
 
-const fields=signupFields;
-let fieldsState={};
-
-fields.forEach(field => fieldsState[field.id]='');
-
 const SignUp = () => {
-  const [signupState,setSignupState]=useState(fieldsState);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleChange=(e)=>setSignupState({...signupState,[e.target.id]:e.target.value});
 
-  const handleSubmit=(e)=>{
-    e.preventDefault();
-    console.log(signupState)
-    createAccount()
-  }
-  //handle Signup API Integration here
-  const createAccount=()=>{
+  
 
-  }
+ 
+  
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto  ">
@@ -36,32 +26,44 @@ const SignUp = () => {
               <h1 className="text-xl  text-center leading-tight tracking-tight  md:text-2xl text-yellow-300 ">
                 CREATE YOUR ACCOUNT
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#">
-              {
-                fields.map(field=>
-                        <Input
-                            key={field.id}
-                            handleChange={handleChange}
-                            value={signupState[field.id]}
-                            labelText={field.labelText}
-                            labelFor={field.labelFor}
-                            id={field.id}
-                            name={field.name}
-                            type={field.type}
-                            isRequired={field.isRequired}
-                            placeholder={field.placeholder}
-                    />
-                
-                )
-            }
-                  
-                  <button type="button" action="submit" onSubmit={handleSubmit}
+              <form className="space-y-4 md:space-y-6" onSubmit>
+                <div>
+                  <input 
+                    type="text"
+                    className="bg-gray-50 mb-5 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
+                    placeholder="Enter First name" 
+                    required
+                    onChange={(e) => setFirstName(e.target.value)}
+                  />
+                  <input 
+                    type="text" 
+                    className="bg-gray-50 mb-5 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
+                    placeholder="Enter Last name"
+                    required
+                    onChange={(e) => setLastName(e.target.value)}
+                  />
+                  <input 
+                    type="email" 
+                    className="bg-gray-50 mb-5 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
+                    placeholder="Enter valid email" 
+                    required
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <input 
+                    type="password" 
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
+                    placeholder="Enter a password"
+                    required
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+                <button type="submit" action="submit" 
                     className="w-full text-white bg-zinc-600 hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign up</button>
-                  <p className="text-sm font-light text-gray-500 ">
+                <p className="text-sm font-light text-gray-500 ">
                     Already have an account? 
-                      <Link to="/login/" className="font-medium text-primary-600 hover:underline">Log in
-                      </Link>
-                  </p>
+                  <Link to="/login/" className="font-medium text-primary-600 hover:underline">Log in
+                  </Link>
+                </p>
               </form>
           </div>
       </div>

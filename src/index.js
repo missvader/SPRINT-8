@@ -5,15 +5,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ShipsContextProvider } from './context/ShipsContext';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ShipsContextProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </ShipsContextProvider>
-  
+    <ShipsContextProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ShipsContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
