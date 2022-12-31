@@ -19,9 +19,8 @@ const LogIn = () => {
     .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        navigate("/starships")
+        navigate("/")
         sessionStorage.setItem('Auth Token', userCredential._tokenResponse.refreshToken)
-        localStorage.setItem([{'user': "user.email"}])
         console.log(user.email);
     })
     .catch((error) => {
