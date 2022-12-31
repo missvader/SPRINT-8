@@ -1,16 +1,36 @@
 import React from "react"
 import loginSw from "../assets/loginSw.png"
-import { Link } from "react-router-dom"
 import { useState } from "react"
-
+import {  signInWithEmailAndPassword   } from 'firebase/auth';
+import { auth } from '../firebase/firebase';
+import { NavLink, useNavigate } from 'react-router-dom'
 
 
 
 
 const LogIn = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
  
+  const onLogin = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        navigate("/starships")
+        sessionStorage.setItem('Auth Token', userCredential._tokenResponse.refreshToken)
+        localStorage.setItem([{'user': "user.email"}])
+        console.log(user.email);
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage)
+    });
+   
+}
 
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto  ">
@@ -22,7 +42,7 @@ const LogIn = () => {
               <h1 className="text-xl  text-center leading-tight tracking-tight  md:text-2xl text-yellow-300 ">
                   ENTER YOUR EMAIL ADDRESS
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#"  onSubmit >
+              <form className="space-y-4 md:space-y-6"  >
                 <div>
                 <input 
                     type="email" 
@@ -40,12 +60,12 @@ const LogIn = () => {
                   />
                 </div>
                   
-                <button type="submit" action="submit" 
+                <button type="submit" onClick={onLogin}  
                   className="w-full text-white bg-zinc-600 hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Log in</button>
                 <p className="text-sm font-light text-gray-500 ">
                     Don’t have an account yet? 
-                    <Link to="/signup/" className="font-medium text-primary-600 hover:underline">Sign up
-                    </Link>
+                    <NavLink to="/signup/" className="font-medium text-primary-600 hover:underline">Sign up
+                    </NavLink>
                 </p>
               </form>
           </div>

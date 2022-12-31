@@ -1,68 +1,38 @@
 import React from "react";
-import { useState , useEffect} from "react";
+import { useState } from "react";
+import { useNavigate , NavLink } from "react-router-dom";
 import loginSw from "../assets/loginSw.png"
-import { Link } from "react-router-dom";
-
+import {  createUserWithEmailAndPassword  } from 'firebase/auth';
+import { auth , db} from '../firebase/firebase';
+import {  ref, set, onValue } from "firebase/database";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState("")
 
-
-  const formValidation = () => {
-    let newErrors = {}
-    if (firstName === "") {
-      newErrors.firstName = <span className="text-red-800 text-center">
-        Name Can't Be Blanck</span>
-    }
-    if (lastName === "") {
-      newErrors.lastName = <span className="text-red-800 text-center">
-        Name Can't Be Blanck</span>
-    }
-    if (email === "") {
-      newErrors.email = <span className="text-red-800 text-center">
-         Email Address Is Required</span>
-    } else if (/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/) {
-      newErrors.email = <span className="text-red-800 text-center">
-        Email address is invalid</span>
-    } else {
-      newErrors.email = <span className="text-green-800 text-center ">
-        Email is Valid</span>
-    }
-    if (password === "") {
-      newErrors.password = <span className="text-red-800 text-center">
-        Password Is Required</span>
-    } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$/) {
-      newErrors.password = <span className="text-red-800 text-center">
-        Invalid Password Format</span>
-    } else {
-      newErrors.password = <span className="text-green-800 text-center ">
-        Correct Password</span>
-    }
-    setErrors(newErrors)
+  const onSubmit = (e) => {
+    e.preventDefault();
+    createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            set(ref(db, "users/" + userCredential.user.uid), {
+              firstName: firstName,
+              lastName: lastName,
+              email: email,
+            });
+          })
+          .catch((error) => console.log(error));
+        navigate("/");
+        //get users from database and show by console
+        let data = ref(db, 'users/');
+        onValue(data, (snapshot) => {
+        data = snapshot.val();
+        console.log(data);
+        })  
   }
-
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    formValidation()
-    setUsers([...users, { email: email, password: password , firstName:firstName, lastName:lastName}])
-  }
-
-  const [users, setUsers] = useState(() => {
-    const data = localStorage.getItem("data")
-    return data ? JSON.parse(data) : []
-  })
-  useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(users))
-    console.log(users)
-  }, [users])
-
-  
-
   return (
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto  ">
       <div className ="w-full bg-zinc-800 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
@@ -73,7 +43,7 @@ const SignUp = () => {
               <h1 className="text-xl  text-center leading-tight tracking-tight  md:text-2xl text-yellow-300 ">
                 CREATE YOUR ACCOUNT
               </h1>
-              <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+              <form className="space-y-4 md:space-y-6">
                 <div>
                   <input 
                     type="text"
@@ -83,7 +53,6 @@ const SignUp = () => {
                     required
                     onChange={(e) => setFirstName(e.target.value)}
                   />
-                  {errors.firstName}
                   <input 
                     type="text" 
                     className="bg-gray-50 mb-3 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
@@ -92,7 +61,6 @@ const SignUp = () => {
                     required
                     onChange={(e) => setLastName(e.target.value)}
                   />
-                  {errors.lastName}
                   <input 
                     type="email" 
                     className="bg-gray-50 mb-3 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
@@ -102,7 +70,6 @@ const SignUp = () => {
                     required
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  {errors.email}
                   <input 
                     type="password" 
                     className="bg-gray-50 mb-3 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
@@ -112,14 +79,13 @@ const SignUp = () => {
                     required
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                  {errors.password}
                 </div>
-                <button type="submit" action="submit" 
+                <button type="submit" onClick={onSubmit} 
                     className="w-full text-white bg-zinc-600 hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign up</button>
                 <p className="text-sm font-light text-gray-500 ">
                     Already have an account? 
-                  <Link to="/login/" className="font-medium text-primary-600 hover:underline">Log in
-                  </Link>
+                  <NavLink to="/login/" className="font-medium text-primary-600 hover:underline">Log in
+                  </NavLink>
                 </p>
               </form>
           </div>
