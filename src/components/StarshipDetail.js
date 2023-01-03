@@ -4,11 +4,12 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { ShipsContext } from "../context/ShipsContext";
-
-
+import Pilots from "./Pilots";
+import Films from "./Films";
 const StarshipDetail = () => {
   const {ship,setShip} = useContext(ShipsContext)
   const {id} = useParams();
+
   //console.log(useParams());
   const urlSingleStarship = `https://swapi.dev/api/starships/` + id ;
   const imgVisualGuide = `https://starwars-visualguide.com/assets/img/starships/${id}.jpg` ;
@@ -34,8 +35,6 @@ const StarshipDetail = () => {
           onError={(e) => (e.currentTarget.src = imgError)}/></figure>
         <div className="card-body border-t-2 border-red-500 text-slate-300">
           <h2 className="card-title uppercase">{ship.name}</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique iusto perferendis neque nemo, recusandae velit minus. Sint molestias assumenda dolores, fuga veritatis odio optio obcaecati repellat. Odio aperiam illo ipsum?
-          </p>
           <div className="grid grid-cols-2 gap-4">
             <p>Model: {ship.model}</p>
             <p>Manufacturer: {ship.manufacturer}</p>
@@ -43,6 +42,27 @@ const StarshipDetail = () => {
             <p>Length: {ship.length}</p>
             <p>Atmospheric Speed: {ship.max_atmosphering_speed}</p>
             <p>Crew: {ship.crew}</p>
+          </div>
+          <div className="grid grid-cols-2 gap-4 ">
+            <div className="mt-3">
+              <h3>PILOTS:</h3>
+              {ship.pilots.map((item, index) => (
+                <Pilots  
+                  key={index}
+                  urlPilot={item}
+                /> )
+              )}
+            </div>
+            <div className="mt-3">
+              <h3>FILMS:</h3>
+              {ship.films.map((item,index) => (
+                <Films
+                  key={index}
+                  urlFilm={item}
+                />)
+              )}
+            </div>
+            
           </div>
           
       </div>

@@ -13,7 +13,7 @@ export const ShipsContextProvider= (props) => {
   const [ships, setShips] = useState([]); //storing list
   const [ship, setShip] = useState({});
   const [page, setPage] = useState(1); 
-  
+
   
   console.log(ships);
   const baseURL = `https://swapi.dev/api/starships/?page=${page}`;

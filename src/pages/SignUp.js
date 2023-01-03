@@ -46,7 +46,6 @@ const SignUp = () => {
               </h1>
               <form className="space-y-4 md:space-y-6">
                 <div >
-                  
                   <input 
                     type="text"
                     className="bg-gray-50 mb-3 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 

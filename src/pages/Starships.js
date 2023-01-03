@@ -5,7 +5,6 @@ import { useContext } from "react";
 import { ShipsContext } from "../context/ShipsContext";
 import InfiniteScroll from "react-infinite-scroll-component";
 import "../App.css";
-import { Navigate } from "react-router-dom";
 const Starships = () => {
   
   const {ships, getShips, setShips, page, setPage } = useContext(ShipsContext)
