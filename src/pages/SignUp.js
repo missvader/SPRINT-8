@@ -9,11 +9,11 @@ import {  ref, set, onValue } from "firebase/database";
 const SignUp = () => {
   const navigate = useNavigate();
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [firstName, setFirstName] = useState(" ");
+  const [lastName, setLastName] = useState(" ");
+  const [email, setEmail] = useState(" ");
+  const [password, setPassword] = useState(" ");
+  
   const onSubmit = (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
@@ -24,7 +24,8 @@ const SignUp = () => {
               email: email,
             });
           })
-          .catch((error) => console.log(error));
+          .catch((error) => {console.log(error)
+                             alert(error) });
         navigate("/");
         //get users from database and show by console
         let data = ref(db, 'users/');
@@ -44,12 +45,12 @@ const SignUp = () => {
                 CREATE YOUR ACCOUNT
               </h1>
               <form className="space-y-4 md:space-y-6">
-                <div>
+                <div >
+                  
                   <input 
                     type="text"
                     className="bg-gray-50 mb-3 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
                     placeholder="Enter First name" 
-                    value={firstName}
                     required
                     onChange={(e) => setFirstName(e.target.value)}
                   />
@@ -57,16 +58,13 @@ const SignUp = () => {
                     type="text" 
                     className="bg-gray-50 mb-3 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
                     placeholder="Enter Last name"
-                    value={lastName}
                     required
                     onChange={(e) => setLastName(e.target.value)}
                   />
                   <input 
                     type="email" 
-                    className="bg-gray-50 mb-3 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
+                    className="bg-gray-50 mb-3 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5" 
                     placeholder="Enter valid email" 
-                    value={email}
-                    id="email"
                     required
                     onChange={(e) => setEmail(e.target.value)}
                   />
@@ -74,8 +72,6 @@ const SignUp = () => {
                     type="password" 
                     className="bg-gray-50 mb-3 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
                     placeholder="Enter a password"
-                    value={password}
-                    id="password"
                     required
                     onChange={(e) => setPassword(e.target.value)}
                   />

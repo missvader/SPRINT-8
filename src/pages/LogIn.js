@@ -27,6 +27,7 @@ const LogIn = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage)
+        alert(errorCode, errorMessage)
     });
    
 }
@@ -42,19 +43,21 @@ const LogIn = () => {
                   ENTER YOUR EMAIL ADDRESS
               </h1>
               <form className="space-y-4 md:space-y-6"  >
-                <div>
+                <div >
                 <input 
                     type="email" 
-                    className="bg-gray-50 mb-5 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
+                    className=" form-control bg-gray-50 mb-5 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
                     placeholder="Enter valid email" 
+                    autoComplete="on"
                     required
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <input 
                     type="password" 
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
+                    className="form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
                     placeholder="Enter a password"
                     required
+                    autoComplete="off"
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
