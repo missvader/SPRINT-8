@@ -24,6 +24,8 @@ function App() {
             </PrivateRoute>
              }/>
           < Route path = "/starships/:id/" element = { <StarshipDetail/>} />
+          {/*< Route path='/pilots/:id/' element = {<PilotDetail/>} />
+          < Route path='/films/:id' element = {<FilmsDetail/>}/>*/}
           < Route path = "/login/" element = { <LogIn/> } />
           < Route path = "/signup/" element = { <SignUp/> } />
         </ Routes >
