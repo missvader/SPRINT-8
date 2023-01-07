@@ -1,6 +1,6 @@
 # STAR WARS APP
 
-Star Wars App built with React.js and Firebase 
+Star Wars App built with `React.js` and `Firebase`
 
 ## Demo
 
