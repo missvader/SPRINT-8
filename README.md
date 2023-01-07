@@ -4,7 +4,7 @@ Star Wars App built with React.js and Firebase
 
 ## Demo
 
-![StarWars](./src/assets/StarWars.gif)
+![Star Wars demo](./src/assets/StarWars.gif)
 
 ### Project Details
 
