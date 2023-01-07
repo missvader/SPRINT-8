@@ -34,12 +34,11 @@ return (
           src= {imgPilot}
           alt="pilot" className="w-full object-cover"
           onError={(e) => (e.currentTarget.src = imgError)}/></figure>
-        <div className="card-body border-t-2 border-red-500 text-slate-300">
+        <div className="card-body ">
           <h2 className="card-title uppercase"> {pilotData.name}</h2>
           <div className="grid grid-cols gap-2">
             <p>Height: {pilotData.height}</p>
             <p>Gender: {pilotData.gender}</p>
-            
           </div>
         </div>
   </div>

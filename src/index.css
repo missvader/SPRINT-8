@@ -9,14 +9,29 @@ html, body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /*background-image: url(https://lumiere-a.akamaihd.net/v1/images/background-stars-desktop_00cbf8a9.jpeg?region=0%2C0%2C2048%2C1600);*/
   background-color: black;
   min-height: 100vh;
   width: 100%;
-  
-  
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@layer components {
+  .input {
+    @apply bg-gray-50 mb-5 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 
+  }
+  .card-body {
+    @apply border-t-2 border-red-500 text-slate-300
+  }
+  .active {
+    @apply border-l-2 border-yellow-100 text-white pl-3
+  }
+  .btn-header {
+    @apply text-white btn-ghost hover:font-bold
+  }
+  .btn-submit {
+    @apply w-full text-white bg-zinc-600 hover:bg-primary focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center
+  }
+}
+

@@ -19,7 +19,7 @@ const Header = () => {
             <li className="pl-4 m-5" >
               <NavLink
                 className={({isActive}) => (
-                      isActive ? "border-l-2 border-yellow-100 text-white pl-3" : "text-zinc-400")}
+                      isActive ? "active" : "text-zinc-400")}
                    to="/"
                   onClick={() => {
                       if (document.activeElement instanceof HTMLElement) {
@@ -33,7 +33,7 @@ const Header = () => {
             <li className="pl-4 m-5 border-b border-zinc-600 pb-5" >
               <NavLink
                 className={({isActive}) => (
-                      isActive ? "border-l-2 border-yellow-100 text-white pl-3 " : "text-zinc-400")}
+                      isActive ? "active " : "text-zinc-400")}
                 to="/starships"
                 onClick={() => {
                       if (document.activeElement instanceof HTMLElement) {
@@ -47,7 +47,7 @@ const Header = () => {
             <li className="pl-4 m-5">
               <NavLink
                 className={({isActive}) => (
-                    isActive ? "border-l-2 border-yellow-100 text-white pl-3" : "text-zinc-400")}
+                    isActive ? "active" : "text-zinc-400")}
                 to="/login"
                 onClick={() => {
                       if (document.activeElement instanceof HTMLElement) {
@@ -61,7 +61,7 @@ const Header = () => {
             <li className="pl-4 m-5" >
               <NavLink
                 className={({isActive}) => (
-                    isActive ? "border-l-2 border-yellow-100 text-white pl-3" : "text-zinc-400")}
+                    isActive ? "active" : "text-zinc-400")}
                 to="/signup"
                 onClick={() => {
                       if (document.activeElement instanceof HTMLElement) {

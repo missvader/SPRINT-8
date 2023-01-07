@@ -28,9 +28,7 @@ const Films = ({urlFilm}) => {
       <img 
           src= {imgFilm}
           alt="film" className="w-full"/>
-      
   </div>
-   
   )
 }
 

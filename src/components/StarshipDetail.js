@@ -34,7 +34,7 @@ const StarshipDetail = () => {
           src= {imgVisualGuide}
           alt="starship" className="w-full"
           onError={(e) => (e.currentTarget.src = imgError)}/></figure>
-        <div className="card-body border-t-2 border-red-500 text-slate-300">
+        <div className="card-body ">
           <h2 className="card-title uppercase">{ship.name}</h2>
           <div className="grid grid-cols-2 gap-4">
             <p>Model: {ship.model}</p>
@@ -44,8 +44,6 @@ const StarshipDetail = () => {
             <p>Atmospheric Speed: {ship.max_atmosphering_speed}</p>
             <p>Crew: {ship.crew}</p>
           </div>
-          
-          
       </div>
     </div>
     {ship.pilots && 
@@ -75,9 +73,6 @@ const StarshipDetail = () => {
               )}
         </div>
       </div>}
-             
-            
-            
     </>
   );
 }

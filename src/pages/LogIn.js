@@ -46,7 +46,7 @@ const LogIn = () => {
                 <div >
                 <input 
                     type="email" 
-                    className=" form-control bg-gray-50 mb-5 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
+                    className=" form-control input" 
                     placeholder="Enter valid email" 
                     autoComplete="on"
                     required
@@ -54,8 +54,9 @@ const LogIn = () => {
                   />
                   <input 
                     type="password" 
-                    className="form-control bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
+                    className="form-control input " 
                     placeholder="Enter a password"
+                    minLength="6"
                     required
                     autoComplete="off"
                     onChange={(e) => setPassword(e.target.value)}
@@ -63,10 +64,10 @@ const LogIn = () => {
                 </div>
                   
                 <button type="submit" onClick={onLogin}  
-                  className="w-full text-white bg-zinc-600 hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Log in</button>
+                  className="btn-submit focus:ring-primary-300">Log in</button>
                 <p className="text-sm font-light text-gray-500 ">
                     Don’t have an account yet? 
-                    <NavLink to="/signup/" className="font-medium text-primary-600 hover:underline">Sign up
+                    <NavLink to="/signup/" className="font-medium text-primary-600 hover:underline"> Sign up
                     </NavLink>
                 </p>
               </form>

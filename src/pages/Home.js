@@ -39,24 +39,15 @@ const Home = () => {
           MAY THE FORCE BE WITH YOU
         </p>
         <div className="flex justify-center">
-          <Link to="/starships" className="mx-auto link">
+          <Link to="/starships" className=" link">
             <button className=" btn glass m-5 ">DISCOVER</button>
           </Link>
           {currentUser && <button className="btn glass m-5"onClick={clickSignOut}>LOG OUT</button> }
         </div>
-        
-        
         </div>
-        
       </div>
-      
     </div>
   </div>  
-    
-    
-    
-     
-
   )
 }
 export default Home;

@@ -16,7 +16,6 @@ const Menu = () =>{
           <button className=" hover:text-white">STARSHIPS</button>
         </NavLink>
       </div>   
-        
     </nav>
   )
 }

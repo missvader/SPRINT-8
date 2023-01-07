@@ -48,38 +48,39 @@ const SignUp = () => {
                 <div >
                   <input 
                     type="text"
-                    className="bg-gray-50 mb-3 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
+                    className="input" 
                     placeholder="Enter First name" 
                     required
                     onChange={(e) => setFirstName(e.target.value)}
                   />
                   <input 
                     type="text" 
-                    className="bg-gray-50 mb-3 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
+                    className="input" 
                     placeholder="Enter Last name"
                     required
                     onChange={(e) => setLastName(e.target.value)}
                   />
                   <input 
                     type="email" 
-                    className="bg-gray-50 mb-3 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5" 
+                    className="input" 
                     placeholder="Enter valid email" 
                     required
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <input 
                     type="password" 
-                    className="bg-gray-50 mb-3 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:bg-zinc-600 focus:border-4 focus:border-yellow-300 block w-full p-2.5 " 
+                    className="input" 
                     placeholder="Enter a password"
                     required
+                    minLength="6"
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
                 <button type="submit" onClick={onSubmit} 
-                    className="w-full text-white bg-zinc-600 hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign up</button>
+                    className="btn-submit ">Sign up</button>
                 <p className="text-sm font-light text-gray-500 ">
                     Already have an account? 
-                  <NavLink to="/login/" className="font-medium text-primary-600 hover:underline">Log in
+                  <NavLink to="/login/" className="font-medium text-primary-600 hover:underline"> Log in
                   </NavLink>
                 </p>
               </form>
