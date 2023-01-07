@@ -13,17 +13,25 @@ export const ShipsContextProvider= (props) => {
   const [ships, setShips] = useState([]); //storing list
   const [ship, setShip] = useState({});
   const [page, setPage] = useState(1); 
+  const [hasMore, setHasMore] = useState(true)
 
-  
-  console.log(ships);
   const baseURL = `https://swapi.dev/api/starships/?page=${page}`;
-  const getShips = (setShips) => {
+
+
+  const getShips = () => {
     axios.get(baseURL)
       .then((response) => {
         setShips((prev) => prev.concat(response.data.results));
+        
       });
   }
   console.log(page)
+  const stopScroll = () => {
+    axios.get(baseURL)
+        .then((res) => {
+            res.data.next == null ? setHasMore(false) : setHasMore(true)
+        })
+  }
    
 	// Retornamos el Provider con el estado que será global con la función que lo actualiza
 	return (
@@ -34,7 +42,9 @@ export const ShipsContextProvider= (props) => {
       getShips,
       setShips,
       page,
-      setPage
+      setPage, 
+      hasMore, 
+      stopScroll
       }}>
       {props.children}
     </ShipsContext.Provider>);
