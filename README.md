@@ -4,7 +4,7 @@ Star Wars App built with React.js and Firebase
 
 ## Demo
 
-Aqui va la demo
+![StarWars](./src/assets/StarWars.gif)
 
 ### Project Details
 
@@ -12,6 +12,7 @@ Aqui va la demo
 - Displays a list of starships, with name and model, and `infinite scroll`
 - Each starship offers a card with detailed info, as well as pilots info and films where it appears
 - Inspired by the Official Star Wars website and styled with `Tailwind CSS` and `DaisyUI`
+- Responsive design 
 - Routing with `React Router`
 - Login and Signup using `Firebase Authentication` and `Realtime Database`
 - `Private Routes` implemented, only logged users can access to starships page 
