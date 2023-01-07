@@ -1,38 +1,30 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container-infinite{
+  background-color: black;
+  background-size:cover;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.bg-container{
+  position: relative;
 }
+.home-container{
+  /*background-image: url(./assets/deathStarPhone.jpeg);*/
+  background-image: url(./assets/phoneBg.jpg);
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
   display: flex;
+  height:100vh;
+  width: 100%;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /*justify-content:flex-start;
+  align-items: center;*/
+  position: absolute;
+  
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 768px) {
+  .home-container{
+   /* background-image: url(./assets/phoneBg.jpg);*/
+   background-image: url(./assets/deathStarPhone.jpeg);
   }
-  to {
-    transform: rotate(360deg);
-  }
+  
 }
